@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>World Asset Terminal</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1 class="title">⚡ WORLD ASSET TERMINAL</h1>
+
+    <!-- 📺 TICKER -->
+    <div class="ticker">
+        <div id="tickerContent"></div>
+    </div>
+
+    <!-- 🟩 HEATMAP -->
+    <div class="heatmap" id="heatmap"></div>
+
+    <!-- 💎 TOP CARDS -->
+    <div class="cards">
+        <div class="card" id="AAPL"></div>
+        <div class="card" id="GOOGL"></div>
+        <div class="card" id="BTC"></div>
+        <div class="card" id="ETH"></div>
+        <div class="card" id="GOLD"></div>
+        <div class="card" id="OIL"></div>
+    </div>
+
+    <!-- 📊 MAIN CHART -->
+    <div class="main-chart">
+        <h2>📊 Market Trends</h2>
+        <canvas id="marketChart"></canvas>
+    </div>
+
+    <!-- 🧠 SUMMARY -->
+    <div class="summary">
+        <h2>🧠 Market Summary</h2>
+        <div id="summary"></div>
+    </div>
+
+    <!-- LOWER -->
+    <div class="bottom">
+
+        <!-- 🚨 ALERTS -->
+        <div class="alerts">
+            <h2>🚨 ACTIVE ALERTS</h2>
+            <ul id="alertsList"></ul>
+        </div>
+
+        <!-- 🎯 GAUGES -->
+        <div class="gauges">
+            <canvas id="gauge1"></canvas>
+            <canvas id="gauge2"></canvas>
+            <canvas id="gauge3"></canvas>
+            <canvas id="gauge4"></canvas>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>⚡ Auto-updated via GitHub Actions • Financial Monitoring System</p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

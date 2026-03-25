@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+
+# Environment files
+.env
+
+# Build / temp files
+dist/
+build/
+
+# Optional: ignore generated data (if you want)
+# data/
+# assets/dashboard.png
