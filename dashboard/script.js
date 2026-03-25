@@ -234,6 +234,13 @@ Liquidity: Strong
 }
 
 /* 🚀 INIT */
-window.addEventListener("DOMContentLoaded", () => {
-    loadData();
-});
+function waitForDataAndRender() {
+    if (window.ASSET_DATA && window.HISTORY_DATA) {
+        loadData();
+    } else {
+        console.log("⏳ Waiting for data...");
+        setTimeout(waitForDataAndRender, 200);
+    }
+}
+
+waitForDataAndRender();
