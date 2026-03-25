@@ -234,4 +234,6 @@ Liquidity: Strong
 }
 
 /* 🚀 INIT */
-loadData();
+window.addEventListener("DOMContentLoaded", () => {
+    loadData();
+});
