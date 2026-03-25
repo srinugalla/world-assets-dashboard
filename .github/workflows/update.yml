@@ -1,8 +1,16 @@
 name: Update Dashboard
 
 on:
+  # ⏱️ Scheduled runs
   schedule:
     - cron: "*/15 * * * *"
+
+  # 🚀 Run on code push
+  push:
+    branches:
+      - main
+
+  # 🖱️ Manual trigger
   workflow_dispatch:
 
 jobs:
@@ -10,21 +18,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - run: npm install puppeteer
-      - run: npm install node-fetch@2
+      - name: Install dependencies
+        run: npm install
 
-      - run: node scripts/fetchData.js
-      - run: node scripts/capture.js
+      - name: Create folders
+        run: |
+          mkdir -p data assets
 
-      - run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "update dashboard" || echo "no changes"
-          git push
+      - name: Fetch data
+        run: node scripts/fetchData.js
+
+      - name: Capture dashboard
+        run: node scripts/capture.js
+
+      - name: Commit & push
+        run: |
+          git pull --rebase origin main
+          git config user.name "srinugalla"
+          git config user.email "srinugalla@users.noreply.github.com"
+
+          # Check if files changed
+          if [[ -n $(git status --porcelain) ]]; then
+            git add assets/dashboard.png data/
+            git commit -m "📊 update dashboard ($(date)) [skip ci]"
+            git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/srinugalla/world-assets-dashboard.git
+          else
+            echo "No changes to commit"
+          fi
