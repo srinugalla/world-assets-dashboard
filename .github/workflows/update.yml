@@ -37,11 +37,16 @@ jobs:
           git config user.name "srinugalla"
           git config user.email "srinugalla@users.noreply.github.com"
 
+          # Set authenticated remote (CRITICAL FIX)
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/srinugalla/world-assets-dashboard.git
+
+          # Add only generated files
           git add assets/dashboard.png data/
 
+          # Commit only if changed
           if [[ -n $(git status --porcelain) ]]; then
             git commit -m "📊 update dashboard ($(date)) [skip ci]"
-            git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/srinugalla/world-assets-dashboard.git
+            git push origin main
           else
             echo "No changes to commit"
           fi
