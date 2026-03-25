@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false # 🔥 KEY FIX
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -33,17 +35,16 @@ jobs:
         run: node scripts/capture.js
 
       - name: Commit & push
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config user.name "srinugalla"
           git config user.email "srinugalla@users.noreply.github.com"
 
-          # Set authenticated remote (CRITICAL FIX)
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/srinugalla/world-assets-dashboard.git
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/srinugalla/world-assets-dashboard.git
 
-          # Add only generated files
           git add assets/dashboard.png data/
 
-          # Commit only if changed
           if [[ -n $(git status --porcelain) ]]; then
             git commit -m "📊 update dashboard ($(date)) [skip ci]"
             git push origin main
