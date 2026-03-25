@@ -17,7 +17,7 @@ A **fully automated financial monitoring dashboard** that tracks global assets a
 
 > Auto-updated every 15 minutes via CI/CD pipeline
 
-![Dashboard](assets/dashboard.png)
+![Dashboard](assets/dashboard.png?raw=true)
 
 ---
 

@@ -6,29 +6,41 @@
     <title>World Asset Terminal</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-    <h1 class="title">⚡ WORLD ASSET TERMINAL</h1>
+    <!-- 🔥 HEADER -->
+    <div class="header">
+        <h1 class="title">⚡ WORLD ASSET TERMINAL</h1>
+        <div class="last-updated" id="lastUpdated"></div>
+    </div>
 
-    <!-- 📺 TICKER -->
+    <!-- 📺 LIVE TICKER -->
     <div class="ticker">
         <div id="tickerContent"></div>
     </div>
 
     <!-- 🟩 HEATMAP -->
-    <div class="heatmap" id="heatmap"></div>
+    <div class="heatmap-section">
+        <h2>🟩 Market Heatmap</h2>
+        <div class="heatmap" id="heatmap"></div>
+    </div>
 
     <!-- 💎 TOP CARDS -->
-    <div class="cards">
-        <div class="card" id="AAPL"></div>
-        <div class="card" id="GOOGL"></div>
-        <div class="card" id="BTC"></div>
-        <div class="card" id="ETH"></div>
-        <div class="card" id="GOLD"></div>
-        <div class="card" id="OIL"></div>
+    <div class="cards-section">
+        <h2>💎 Asset Overview</h2>
+        <div class="cards">
+            <div class="card" id="AAPL"></div>
+            <div class="card" id="GOOGL"></div>
+            <div class="card" id="BTC"></div>
+            <div class="card" id="ETH"></div>
+            <div class="card" id="GOLD"></div>
+            <div class="card" id="OIL"></div>
+        </div>
     </div>
 
     <!-- 📊 MAIN CHART -->
@@ -43,21 +55,21 @@
         <div id="summary"></div>
     </div>
 
-    <!-- LOWER -->
+    <!-- LOWER DASHBOARD -->
     <div class="bottom">
 
         <!-- 🚨 ALERTS -->
         <div class="alerts">
-            <h2>🚨 ACTIVE ALERTS</h2>
+            <h2>🚨 Active Alerts</h2>
             <ul id="alertsList"></ul>
         </div>
 
         <!-- 🎯 GAUGES -->
         <div class="gauges">
-            <canvas id="gauge1"></canvas>
-            <canvas id="gauge2"></canvas>
-            <canvas id="gauge3"></canvas>
-            <canvas id="gauge4"></canvas>
+            <div class="gauge"><canvas id="gauge1"></canvas></div>
+            <div class="gauge"><canvas id="gauge2"></canvas></div>
+            <div class="gauge"><canvas id="gauge3"></canvas></div>
+            <div class="gauge"><canvas id="gauge4"></canvas></div>
         </div>
 
     </div>
