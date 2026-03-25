@@ -1,6 +1,11 @@
 async function loadData() {
-    const data = window.ASSET_DATA || {};
-    const history = window.HISTORY_DATA || {};
+    const data = window.ASSET_DATA;
+    const history = window.HISTORY_DATA;
+
+    if (!data || !history) {
+        console.warn("Data not loaded yet");
+        return;
+    }
 
     renderCards(data, history);
     createTicker(data);
