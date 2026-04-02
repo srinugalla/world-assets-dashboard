@@ -15,7 +15,7 @@ A **fully automated financial monitoring dashboard** that tracks global assets a
 
 ## 🚀 Live Dashboard
 
-> Auto-updated every 15 minutes via CI/CD pipeline
+> Auto-updated once in every 4 hours via CI/CD pipeline
 
 ![Dashboard](assets/dashboard.png?raw=true)
 
@@ -82,7 +82,7 @@ This project simulates a **real-world financial monitoring system**, combining:
 
 ### 🔁 Full Automation
 
-* Runs every **15 minutes**
+* Runs once in every **4 hours**
 * Triggered on:
 
   * ⏱️ schedule (cron)
